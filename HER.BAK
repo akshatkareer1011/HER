@@ -18,17 +18,48 @@
 #include<conio.h>
 #include<stdio.h>
 #include<graphics.h>
+#include<dos.h>
 #include<fstream.h>
+#include<string.h>
 #include<PLAYER.h>
+#include<HELP.h>
 #include<HERO.h>
+#include<RECMAN.h>
 #include<LEVEL_01.h>
+#include<LEVEL_02.h>
+#include<LEVEL_03.h>
 #include<STARTMEN.h>
 
 int SYSTEM_EXIT=0;
+
 void new_game()
 {
+    help();
     intro();
-    lvl_01();
+    if(1)
+    {
+        lvl_01();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            return;
+        }
+        lvl12_bridge();
+        lvl_02();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            return;
+        }
+        lvl23_bridge();
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            return;
+        }
+        ending();
+    }
 }
 
 void continue_game()
@@ -38,9 +69,61 @@ void continue_game()
     case 1:
     {
         lvl_01();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        lvl12_bridge();
+        lvl_02();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        lvl23_bridge();
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        ending();
+        break;
+
+    }
+    case 2:
+    {
+        lvl_02();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        lvl23_bridge();
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        ending();
+        break;
+    }
+
+    case 3:
+    {
+        lvl_03();
+        if(ispressedEsc==1)
+        {
+            ispressedEsc=0;
+            break;
+        }
+        ending();
         break;
     }
     }
+
 }
 
 void main()
@@ -49,8 +132,8 @@ void main()
     int gd=DETECT,gm;
 //initgraph(&gd,&gm,"C:\\TURBOC3\\BGI"); //main call
     initgraph(&gd,&gm,"C:\\TC\\BGI");//for @Yash 's PC only, comment it out for your own PC and use the upar waala statement
-    setbkcolor(WHITE);
-
+    setbkcolor(DARKGRAY);
+    beginning();
     while(!SYSTEM_EXIT)
     {
         switch(StartMenu())

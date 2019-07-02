@@ -1,10 +1,46 @@
-int ispressedSpace=0;
-int ispressedEsc=0;
-int text_coor[]= {0,405,0,480,640,480,640,405};
+//Level one
+
+void beginning()
+{
+
+    settextjustify(1,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,background_coor);
+    setcolor(DARKGRAY);
+    settextstyle(1,0,8);
+    delay(1500);
+    outtextxy(320,220,"HER");
+
+
+    delay(1800);
+    settextstyle(3,0,3);
+    setcolor(LIGHTGRAY);
+    outtextxy(400,270,"...A Tale Unsung");
+    getch();
+}
 
 void intro()
 {
-
+    setcolor(RED);
+    fillpoly(4,background_coor);
+    settextjustify(0,1);
+    settextstyle(1,0,1);
+    outtextxy(10,30,"After years of waiting, the moment had finally come.");
+    getch();
+    outtextxy(10,50,"I was meeting her tonight. I still remember why it took so long...");
+    getch();
+    outtextxy(10,90,"Three years ago, I landed in New York to find the girl of my life.");
+    getch();
+    outtextxy(10,110,"We had separated back in school.");
+    getch();
+    outtextxy(10,130,"\"You're gonna come and see me, right?\"");
+    getch();
+    outtextxy(10,170,"\"You doubt that?\"");
+    getch();
+    outtextxy(10,190,"\"Just in case you ever try to forget me, here's a little something.\"");
+    getch();
+    outtextxy(10,230,"And then she broke her locket into half and gave one piece to me.");
+    getch();
 }
 
 
@@ -18,6 +54,7 @@ void make_room()
     fillpoly(4,background_coor);
 
 //map boundary
+    setfillstyle(SOLID_FILL,WHITE);
     int floor_coor[]= {0,400,0,0,640,0,640,400};
     fillpoly(4,floor_coor);
 
@@ -26,17 +63,23 @@ void make_room()
     int bedSheet_coor[]= {205,190,205,310,100,310,100,190};
     int bedFold_coor[]= {100,310,100,190,61,190,61,310};
     int pillow_coor[]= {40,220,40,280,12,280,12,220};
+    setfillstyle(SOLID_FILL,LIGHTCYAN);
     fillpoly(4,bedFoundation_coor);
+    setfillstyle(SOLID_FILL,GREEN);
     fillpoly(4,bedSheet_coor);
+    setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,bedFold_coor);
+    setfillstyle(SOLID_FILL,WHITE);
     fillpoly(4,pillow_coor);
 
 //drawer
     int drawer_coor[]= {0,180,70,180,70,0,0,0};
+    setfillstyle(SOLID_FILL,DARKGRAY);
     fillpoly(4,drawer_coor);
 
 //cupboard
     int cupboard_coor[]= {80,0,210,0,210,70,80,70};
+    setfillstyle(SOLID_FILL,DARKGRAY);
     fillpoly(4,cupboard_coor);
 
 //carpet
@@ -46,8 +89,11 @@ void make_room()
     int tri2_coor[]= {380,40,440,40,440,100};
     int tri3_coor[]= {240,310,240,370,300,370};
     int tri4_coor[]= {440,310,380,370,440,370};
+    setfillstyle(SOLID_FILL,LIGHTMAGENTA);
     fillpoly(4,carpetBase_coor);
+    setfillstyle(SOLID_FILL,LIGHTGREEN);
     fillpoly(4,innerBase_coor);
+    setfillstyle(SOLID_FILL,YELLOW);
     fillpoly(3,tri1_coor);
     fillpoly(3,tri2_coor);
     fillpoly(3,tri3_coor);
@@ -58,13 +104,18 @@ void make_room()
     int back_coor[]= {600,180,620,200,620,240,600,260};
     int table_coor[]= {640,120,640,320,520,320,520,120};
     int chair_coor[]= {520,160,480,160,480,280,520,280};
+    setfillstyle(SOLID_FILL,LIGHTBLUE);
     fillpoly(4,table_coor);
+    setfillstyle(SOLID_FILL,YELLOW);
     fillpoly(4,chair_coor);
+    setfillstyle(SOLID_FILL,LIGHTGRAY);
     fillpoly(4,monitor_coor);
+    setfillstyle(SOLID_FILL,DARKGRAY);
     fillpoly(4,back_coor);
 
 //gate
     int gate_coor[]= {190,400,190,410,240,410,240,400};
+    setfillstyle(SOLID_FILL,BROWN);
     fillpoly(4,gate_coor);
 }
 
@@ -87,7 +138,7 @@ void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valmi
     case'b': {hero_b(x,y);break;}
         case'f': {hero_f(x,y);break;}
             }
-    while(ispressedSpace==0&&ispressedEsc==0) /*1=true, so this loop runs as long as it is not exited manually*/
+    while(ispressedSpace==0&&ispressedEsc==0)
     {
         if (x>=valminx&&x<=valmaxx&&y>=valminy&&y<=valmaxy)
         {
@@ -168,6 +219,21 @@ void move_hero(int &x, int &y, int minx, int maxx, int miny, int maxy, int valmi
 
 }
 
+void dialogue_start()
+{
+    setcolor(DARKGRAY);
+    settextstyle(3,0,1);
+    setfillstyle(SOLID_FILL,WHITE);
+    fillpoly(4,text_coor);
+    outtextxy(10,410,"It's a beautiful morning, isn't it?");
+    getch();
+    outtextxy(10,430,"I'm speaking to myself again...");
+    getch();
+    outtextxy(10,450,"Wait, there's a mail on the PC. Let me check it.");
+    getch();
+    fillpoly(4,text_coor);
+
+}
 
 void dialogue_mail()
 {
@@ -176,7 +242,7 @@ void dialogue_mail()
     fillpoly(4,text_coor);
     outtextxy(10,410,"Mail: Hey,");
     getch();
-    outtextxy(10,430,"I bet you don't really remeber. There's no other reason why you still");
+    outtextxy(10,430,"I bet you don't really remeber. There's no other reason why you");
     getch();
     outtextxy(10,450,"couldn't come. You were never good at promises. I hope that locket");
     getch();
@@ -185,7 +251,7 @@ void dialogue_mail()
     getch();
     outtextxy(10,430,"I wouldn't have contacted you, I didn't mean to intrude, but I really ");
     getch();
-    outtextxy(10,450,"need you right now. Things are not... right. I should not have come");
+    outtextxy(10,450,"need you right now. Things are not... right here. I should not have come");
     getch();
     fillpoly(4,text_coor);
     outtextxy(10,410,"here in the first place. I should have listened to you. I hope it is");
@@ -283,31 +349,10 @@ void lvl_01()
     int vminx=0,vmaxx,vminy,vmaxy;
     int quit=0;
     make_room();
-
-    switch (CurrentPlayer.hero_orientation)
+    if (CurrentPlayer.isreadMail==0&&CurrentPlayer.istakenLocket==0&&CurrentPlayer.hero_x==120&&CurrentPlayer.hero_y==165&&CurrentPlayer.hero_orientation=='b')
     {
-    case 'l':
-    {
-        hero_l(CurrentPlayer.hero_x,CurrentPlayer.hero_y);
-        break;
+        dialogue_start();
     }
-    case 'r':
-    {
-        hero_r(CurrentPlayer.hero_x,CurrentPlayer.hero_y);
-        break;
-    }
-    case 'b':
-    {
-        hero_b(CurrentPlayer.hero_x,CurrentPlayer.hero_y);
-        break;
-    }
-    case 'f':
-    {
-        hero_f(CurrentPlayer.hero_x,CurrentPlayer.hero_y);
-        break;
-    }
-    }
-
     while(1)
     {
         if (CurrentPlayer.hero_y==375)
@@ -452,7 +497,7 @@ void lvl_01()
                     quit=1;
                 }
             }
-            else if(CurrentPlayer.hero_x==495&&CurrentPlayer.hero_y==240&&::CurrentPlayer.hero_orientation=='r')
+            else if(CurrentPlayer.hero_x==495&&CurrentPlayer.hero_y>=225&&CurrentPlayer.hero_y<=250&&::CurrentPlayer.hero_orientation=='r')
             {
                 if(CurrentPlayer.isreadMail==0)
                 {
@@ -464,7 +509,7 @@ void lvl_01()
                     dialogue_postmail();
                 }
             }
-            else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y==150&&::CurrentPlayer.hero_orientation=='l')
+            else if(CurrentPlayer.hero_x==95&&CurrentPlayer.hero_y<=165&&CurrentPlayer.hero_y>=135&&::CurrentPlayer.hero_orientation=='l')
             {
                 if(CurrentPlayer.isreadMail==1&&CurrentPlayer.istakenLocket==0)
                 {
@@ -476,15 +521,16 @@ void lvl_01()
                     dialogue_rightDrawer2();
                 }
             }
-            else if(CurrentPlayer.hero_x==155&&CurrentPlayer.hero_y==135&&::CurrentPlayer.hero_orientation=='b')
+            else if(CurrentPlayer.hero_x>=95&&CurrentPlayer.hero_x<=185&&CurrentPlayer.hero_y==135&&::CurrentPlayer.hero_orientation=='b')
             {
                 if(CurrentPlayer.isreadMail==1)
                 {
                     dialogue_wrongDrawer();
                 }
             }
+            ispressedSpace=0;
         }
-        if (ispressedEsc||ispressedSpace)
+        if (ispressedEsc)
         {
             quit=1;
         }

@@ -16,7 +16,6 @@ public:
     int receptionClue;
     int isseenSafe;
     int isreadLetter;
-    int ishavingKey;
     int hero_x;
     int hero_y;
     int lvl_no;
@@ -29,7 +28,6 @@ public:
         receptionClue=0;
         isseenSafe=0;
         isreadLetter=0;
-        ishavingKey=0;
         hero_orientation='b';
         lvl_no=1;
     }

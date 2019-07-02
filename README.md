@@ -1,9 +1,11 @@
 # HER
-The RPG of 2019-20
 
+**The RPG of 2019-20**
 
-Place the Header files in the INCLUDE folder for Turbo C++
+This game is currently under development
 
-Place the Player.dat file in BIN
+**Install Instructions**
 
-Place the repository in TC folder
+1. Place the repository in `C:\TurboC4\TC`  (or `C:\TurboC3` if you have the older version).
+2. Read comments in HER.cpp and change the `initgraph()` call accordingly.
+3. Run `install.bat`.

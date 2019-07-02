@@ -96,7 +96,7 @@ void hero_b(int x, int y)
     fillpoly(6,face_coor);
 
 //ears
-    setfillstyle(SOLID_FILL,LIGHTGREEN);
+    setfillstyle(SOLID_FILL,WHITE);
     int earL_coor[]= {x-17,y-24,x-19,y-24,x-19,y-22,x-17,y-21};
     int earR_coor[]= {x+17,y-24,x+19,y-24,x+19,y-22,x+17,y-21};
     fillpoly(4,earL_coor);
